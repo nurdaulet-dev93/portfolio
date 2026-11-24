@@ -1,0 +1,467 @@
+<!-- <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нурдаулет | Создание сайтов</title>
+    <style>
+        :root {
+            --accent: #0d6efd;
+            --dark: #111111;
+            --text: #222222;
+            --soft: #f4f7fc;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--text);
+            background-color: #ffffff;
+        }
+
+        /* ---------- Шапка ---------- */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 40px;
+            background-color: var(--dark);
+        }
+
+        .logo { font-size: 22px; font-weight: bold; color: var(--accent); }
+        .nav { display: flex; gap: 25px; }
+        .nav a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav a:hover { color: #6ea8fe; }
+
+        /* ---------- Главный экран ---------- */
+        .hero {
+            text-align: center;
+            padding: 110px 20px;
+            background: linear-gradient(180deg, #e8f1ff 0%, #ffffff 100%);
+        }
+
+        .hero h1 { font-size: 46px; margin: 0 0 15px 0; animation: fadeUp 0.8s ease backwards; }
+        .hero p { font-size: 20px; color: #555; max-width: 600px; margin: 0 auto 30px auto; animation: fadeUp 0.8s ease 0.2s backwards; }
+
+        .button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 15px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeUp 0.8s ease 0.4s backwards;
+        }
+
+        .button:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(13, 110, 253, 0.5); }
+
+        /* ---------- Секции ---------- */
+        .section { padding: 70px 40px; text-align: center; }
+        .section.soft { background-color: var(--soft); }
+        .section h2 { font-size: 32px; margin: 0 0 40px 0; }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(13, 110, 253, 0.2); }
+        .card h3 { margin: 0 0 10px 0; }
+        .card p { margin: 0 0 15px 0; color: #555; line-height: 1.5; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+
+        .tag {
+            background-color: #e8f1ff;
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .link { color: var(--accent); text-decoration: none; font-weight: bold; }
+        .link:hover { text-decoration: underline; }
+        .price { color: var(--accent); font-weight: bold; font-size: 20px; margin: 0; }
+
+        /* ---------- Контакты ---------- */
+        .contacts { background-color: var(--dark); color: white; }
+        .contacts p { margin: 10px 0; font-size: 18px; }
+        .contacts a { color: #6ea8fe; text-decoration: none; }
+
+        .footer { text-align: center; padding: 20px; background-color: #000; color: #888; font-size: 14px; }
+
+        /* ---------- Анимации ---------- */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s, transform 0.8s; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        /* ---------- Адаптивность ---------- */
+        @media (max-width: 768px) {
+            .header { flex-direction: column; gap: 12px; padding: 15px 20px; }
+            .hero { padding: 70px 20px; }
+            .hero h1 { font-size: 32px; }
+            .section { padding: 50px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">Нурдаулет</div>
+        <div class="nav">
+            <a href="#projects">Работы</a>
+            <a href="#services">Услуги</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Создаю сайты для малого бизнеса</h1>
+        <p>Сайты-визитки, лендинги и страницы с меню и ценами. Современный дизайн, удобный вид на телефоне.</p>
+        <a href="#contacts" class="button">Заказать сайт</a>
+    </div>
+
+    <div class="section" id="projects">
+        <h2 class="reveal">Мои работы</h2>
+        <div class="cards reveal">
+            <div class="card">
+                <h3>Barber House</h3>
+                <p>Сайт барбершопа: услуги с ценами, плавные анимации, адаптация под телефон.</p>
+                <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+                <a class="link" href="https://nurdaulet-dev93.github.io/barber-house/" target="_blank" rel="noopener">Открыть сайт →</a>
+            </div>
+            <div class="card">
+                <h3>Coffee Time</h3>
+                <p>Сайт кофейни: меню в виде сетки, цены, контакты, анимации при прокрутке.</p>
+                <div class="tags"><span class="tag">HTML</span><span class="tag">CSS Grid</span><span class="tag">JavaScript</span></div>
+                <a class="link" href="https://nurdaulet-dev93.github.io/coffee-time/" target="_blank" rel="noopener">Открыть сайт →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section soft" id="services">
+        <h2 class="reveal">Что я делаю</h2>
+        <div class="cards reveal">
+            <div class="card">
+                <h3>Сайт-визитка</h3>
+                <p>Одна страница: кто вы, чем занимаетесь, контакты.</p>
+                <p class="price">от 20 000 ₸</p>
+            </div>
+            <div class="card">
+                <h3>Лендинг</h3>
+                <p>Страница под услугу или товар с блоками, ценами и кнопкой заявки.</p>
+                <p class="price">от 35 000 ₸</p>
+            </div>
+            <div class="card">
+                <h3>Доработка сайта</h3>
+                <p>Исправлю вёрстку, добавлю адаптивность и анимации.</p>
+                <p class="price">от 10 000 ₸</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section contacts" id="contacts">
+        <h2 class="reveal">Связаться со мной</h2>
+        <p class="reveal">Telegram: <a href="https://t.me/REAPER_897" target="_blank" rel="noopener">REAPER</a></p>
+        <p class="reveal">WhatsApp: <a href="https://wa.me/77002521951" target="_blank" rel="noopener">+7 700 252 19 51</a></p>
+        <p class="reveal">Email: <a href="mailto:you@example.com">nurdauletbolatov707@gmail.com</a></p>
+    </div>
+
+    <div class="footer">© 2026 Нурдаулет</div>
+
+    <script>
+        const elements = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        elements.forEach(function (el) {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Нурдаулет — создание сайтов</title>
+<meta name="description" content="Создаю сайты-визитки и лендинги для малого бизнеса.">
+<style>
+:root{--bg:#000;--card:#151515;--line:rgba(255,255,255,.14);--text:#f2f2f2;--muted:#9b9b9b;--lime:#c6ff3d}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+a:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+
+/* Шапка */
+.nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:14px max(20px,5vw);background:rgba(0,0,0,.55);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font-family:Impact,"Arial Narrow",sans-serif;font-size:22px;letter-spacing:.04em}
+.links{display:flex;gap:26px;align-items:center;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--lime)}
+
+/* Кнопки */
+.btn{display:inline-block;background:var(--lime);color:#000;font-weight:700;padding:14px 30px;border-radius:99px;transition:transform .3s,box-shadow .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(198,255,61,.35);color:#000}
+.btn.sm{padding:9px 20px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.btn.ghost:hover{color:var(--text);border-color:var(--lime);box-shadow:none}
+
+/* Главный экран: единственная анимация при загрузке */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:110px 20px 60px}
+#bg{position:absolute;inset:0;width:100%;height:100%}
+.hero>*:not(canvas){position:relative}
+h1,h2{font-family:Impact,"Arial Narrow Bold","Arial Black",sans-serif;font-weight:400;text-transform:uppercase;line-height:.98}
+h1{font-size:clamp(52px,12vw,170px);letter-spacing:-.01em}
+h1 span{display:block;animation:rise 1s cubic-bezier(.2,.7,.2,1) backwards}
+h1 span:nth-child(2){animation-delay:.15s}
+.hero p{color:var(--muted);font-size:clamp(16px,2vw,20px);max-width:38ch;margin:26px auto 34px;animation:rise 1s .35s cubic-bezier(.2,.7,.2,1) backwards}
+.hero .btn{animation:rise 1s .5s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+
+/* Секции */
+.sec{padding:120px max(20px,5vw);max-width:1200px;margin:0 auto}
+h2{font-size:clamp(40px,7vw,84px);margin-bottom:16px}
+.lead{color:var(--muted);max-width:46ch;margin-bottom:44px}
+
+/* 3D-карусель */
+#gal{display:block;width:100%;height:min(72vh,540px);cursor:grab;touch-action:pan-y;border:1px solid var(--line);border-radius:24px;background:radial-gradient(circle at 50% 35%,#1d2a08,#000 70%)}
+#gal:active{cursor:grabbing}
+.hint{color:var(--muted);font-size:14px;text-align:center;margin-top:14px}
+
+/* Тарифы */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px 28px}
+.plan.hot{border-color:var(--lime);box-shadow:0 0 60px rgba(198,255,61,.16)}
+.plan h3{font-size:20px;margin-bottom:6px}
+.badge{display:inline-block;background:var(--lime);color:#000;font-size:13px;font-weight:700;padding:3px 12px;border-radius:99px;margin-left:8px;vertical-align:middle}
+.price{font-family:Impact,"Arial Narrow Bold",sans-serif;font-size:44px;margin:12px 0 18px}
+.plan ul{list-style:none;padding:0;display:grid;gap:10px;color:var(--muted)}
+.plan li::before{content:"+ ";color:var(--lime);font-weight:700}
+
+/* Контакты */
+.contact{text-align:center}
+.contact .lead{margin:0 auto 36px}
+.row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:14px;padding:32px;border-top:1px solid var(--line)}
+
+@media(max-width:700px){.links a:not(.btn){display:none}.sec{padding:80px 20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#top" class="logo">Нурдаулет</a>
+  <div class="links">
+    <a href="#works">Работы</a>
+    <a href="#plans">Тарифы</a>
+    <a href="#contacts" class="btn sm">Связаться</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="bg"></canvas>
+  <h1><span>Создаю сайты</span><span>для малого бизнеса</span></h1>
+  <p>Визитки, лендинги и страницы с ценами. Работают на телефоне и на компьютере.</p>
+  <a href="#contacts" class="btn">Заказать сайт</a>
+</header>
+
+<section class="sec" id="works">
+  <h2>Мои работы</h2>
+  <p class="lead">Крутите карусель мышью или пальцем. Нажмите на карточку, чтобы открыть сайт.</p>
+  <canvas id="gal"></canvas>
+  <p class="hint">Потяните влево или вправо</p>
+</section>
+
+<section class="sec" id="plans">
+  <h2>Тарифы</h2>
+  <p class="lead">Цены ориентировочные. Точную сумму назову после обсуждения задачи.</p>
+  <div class="prices">
+    <div class="plan">
+      <h3>Визитка</h3>
+      <div class="price">от 20 000 ₸</div>
+      <ul><li>Одна страница</li><li>Вид на телефоне и ПК</li><li>Публикация в интернете</li></ul>
+    </div>
+    <div class="plan hot">
+      <h3>Лендинг<span class="badge">Выбирают чаще</span></h3>
+      <div class="price">от 35 000 ₸</div>
+      <ul><li>Несколько блоков</li><li>Анимации</li><li>Кнопки связи</li><li>2 круга правок</li></ul>
+    </div>
+    <div class="plan">
+      <h3>Доработка</h3>
+      <div class="price">от 10 000 ₸</div>
+      <ul><li>Исправлю вёрстку</li><li>Добавлю адаптивность</li><li>Обновлю дизайн</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact" id="contacts">
+  <h2>Расскажите, какой сайт нужен</h2>
+  <p class="lead">Напишите в мессенджер. Отвечу с ценой и сроками.</p>
+  <div class="row">
+    <a class="btn" href="https://t.me/ваш_ник" target="_blank" rel="noopener">Telegram</a>
+    <a class="btn ghost" href="https://wa.me/77000000000" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="btn ghost" href="mailto:you@example.com">Email</a>
+  </div>
+</section>
+
+<footer>© 2026 Нурдаулет</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Общая заготовка: рендерер, сцена, камера
+function scene3d(canvas, z) {
+  const r = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  r.outputEncoding = THREE.sRGBEncoding;
+  const s = new THREE.Scene();
+  const c = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+  c.position.z = z;
+  const fit = () => {
+    r.setPixelRatio(Math.min(devicePixelRatio, 2));
+    r.setSize(canvas.clientWidth, canvas.clientHeight, false);
+    c.aspect = canvas.clientWidth / canvas.clientHeight;
+    c.updateProjectionMatrix();
+  };
+  fit();
+  addEventListener('resize', fit);
+  return { r, s, c };
+}
+
+// ===== 1. Кольцо из частиц на главном экране =====
+try {
+  const H = scene3d(document.getElementById('bg'), innerWidth < 700 ? 15 : 9);
+  const N = 2600, pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    const a = Math.random() * Math.PI * 2;
+    const R = 4 + Math.random() * 1.6 + Math.random() * Math.random() * 1.5;
+    pos[i * 3] = Math.cos(a) * R;
+    pos[i * 3 + 1] = (Math.random() - 0.5) * 1.2;
+    pos[i * 3 + 2] = Math.sin(a) * R;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const ring = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xc6ff3d, size: 0.035, transparent: true, opacity: 0.85 }));
+  ring.rotation.x = 0.35;
+  H.s.add(ring);
+
+  let mx = 0, my = 0;
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - 0.5; my = e.clientY / innerHeight - 0.5; });
+
+  (function loop() {
+    if (!calm) ring.rotation.y += 0.0018;
+    ring.rotation.x += (0.35 + my * 0.5 - ring.rotation.x) * 0.05;   // наклон за мышью
+    ring.position.x += (mx * 1.2 - ring.position.x) * 0.05;
+    H.r.render(H.s, H.c);
+    requestAnimationFrame(loop);
+  })();
+} catch (e) { /* без WebGL страница всё равно работает */ }
+
+// ===== 2. Карусель из карточек-проектов =====
+try {
+  const cv = document.getElementById('gal');
+  const G = scene3d(cv, cv.clientWidth < 600 ? 13 : 9.5);
+  const items = [
+    { t: 'Barber House', s: 'Сайт барбершопа', u: 'https://nurdaulet-dev93.github.io/barber-house/', c: '#c8a27a' },
+    { t: 'Coffee Time', s: 'Сайт кофейни', u: 'https://nurdaulet-dev93.github.io/coffee-time/', c: '#d98e4a' },
+    { t: 'Ваш сайт', s: 'Следующим может быть он', u: '#contacts', c: '#c6ff3d' }
+  ];
+
+  // Рисуем «окно браузера» на 2D-холсте и делаем из него текстуру
+  function texture(it) {
+    const k = document.createElement('canvas');
+    k.width = 800; k.height = 500;
+    const x = k.getContext('2d');
+    x.fillStyle = '#0d0d0d'; x.fillRect(0, 0, 800, 500);
+    x.fillStyle = '#222'; x.fillRect(0, 0, 800, 56);
+    [0, 1, 2].forEach(i => { x.fillStyle = i ? '#555' : it.c; x.beginPath(); x.arc(30 + i * 26, 28, 8, 0, 7); x.fill(); });
+    x.fillStyle = it.c; x.fillRect(50, 120, 220, 12);
+    x.fillStyle = '#fff'; x.font = 'bold 64px Arial'; x.fillText(it.t, 50, 225);
+    x.fillStyle = '#999'; x.font = '28px Arial'; x.fillText(it.s, 50, 280);
+    x.fillStyle = '#222'; [50, 290, 530].forEach(px => x.fillRect(px, 350, 220, 90));
+    x.fillStyle = it.c; [50, 290, 530].forEach(px => x.fillRect(px, 350, 220, 6));
+    const t = new THREE.CanvasTexture(k);
+    t.encoding = THREE.sRGBEncoding;
+    return t;
+  }
+
+  const group = new THREE.Group();
+  G.s.add(group);
+  const meshes = items.map((it, i) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(4, 2.5), new THREE.MeshBasicMaterial({ map: texture(it) }));
+    const a = i / items.length * Math.PI * 2;
+    m.position.set(Math.sin(a) * 4.6, 0, Math.cos(a) * 4.6);   // раскладываем по кругу
+    m.rotation.y = a;                                          // лицом наружу
+    m.userData = it;
+    group.add(m);
+    return m;
+  });
+
+  let rot = 0, vel = 0, down = false, lastX = 0, moved = 0;
+  cv.addEventListener('pointerdown', e => { down = true; lastX = e.clientX; moved = 0; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener('pointercancel', () => { down = false; });
+  cv.addEventListener('pointermove', e => {
+    if (!down) return;
+    const d = e.clientX - lastX; lastX = e.clientX;
+    moved += Math.abs(d); vel = d * 0.006;
+  });
+  cv.addEventListener('pointerup', e => {
+    down = false;
+    if (moved > 6) return;                       // это было перетаскивание, а не клик
+    const b = cv.getBoundingClientRect();
+    const m = new THREE.Vector2((e.clientX - b.left) / b.width * 2 - 1, -((e.clientY - b.top) / b.height) * 2 + 1);
+    const rc = new THREE.Raycaster();
+    rc.setFromCamera(m, G.c);
+    const hit = rc.intersectObjects(meshes)[0];
+    if (!hit) return;
+    const u = hit.object.userData.u;
+    if (u[0] === '#') location.hash = u; else window.open(u, '_blank', 'noopener');
+  });
+
+  (function loop() {
+    rot += vel; vel *= 0.94;                     // инерция после броска
+    if (!down && !calm && Math.abs(vel) < 0.0005) rot += 0.003;   // медленное вращение само
+    group.rotation.y = rot;
+    G.r.render(G.s, G.c);
+    requestAnimationFrame(loop);
+  })();
+} catch (e) { /* без WebGL страница всё равно работает */ }
+</script>
+</body>
+</html>
